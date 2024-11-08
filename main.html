@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Dynamic Resume Builder</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Dynamic Resume Builder</h1>
+
+        <!-- Resume Form -->
+        <form id="resumeForm">
+            <!-- About Me Section -->
+
+
+            <fieldset>
+                <legend>Objective</legend>
+                <textarea id="objective" name="objective" required placeholder="State your career objective or goal..." rows="5" cols="150"></textarea>
+            </fieldset>
+            
+            <!-- Personal Information Section -->
+            <fieldset>
+                <legend>Personal Information</legend>
+                <div class="profile-section">
+                    <div id="profilePicturePreview" class="profile-picture"></div>
+                    <label for="profilePicture">Upload Profile Picture:</label>
+                    <input type="file" id="profilePicture" name="profilePicture" accept="image/*">
+                </div>
+                
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="age">Date of Birth:</label>
+                <input type="date" id="age" name="age" required>
+
+                <label for="phone">Phone no:</label>
+                <input type="text" id="phone" name="phone" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                   <!-- LinkedIn Link Section -->
+                <label for="linkedin">LinkedIn Profile:</label>
+                <input type="url" id="linkedin" name="linkedin" placeholder="https://www.linkedin.com/in/yourprofile" required>
+
+                
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" required>
+
+                <!-- Languages Section -->
+                <label for="languages">Languages:</label>
+                <div id="languageList">
+                    <div>
+                        <input type="text" name="language[]" placeholder="Language" required>
+                        <select name="proficiency[]">
+                            <option value="Fluent">Fluent</option>
+                            <option value="Intermediate">Intermediate</option>
+                            <option value="Basic">Basic</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="button" onclick="addLanguage()">Add Language</button>
+            </fieldset>
+
+            <fieldset>
+                <legend>About Me</legend>
+                <textarea id="aboutMe" name="aboutMe" required placeholder="Write a brief about yourself..." rows="5" cols="150"></textarea>
+            </fieldset>
+
+            <!-- Education Section -->
+            <fieldset id="educationFieldset">
+                <legend>Education</legend>
+                <div id="educationList">
+                    <div>
+                        <label for="educationLevel">Education Level:</label>
+                        <input type="text" name="educationLevel[]" placeholder="e.g., Bachelor's Degree" required>
+
+                        <label for="institution">Where (Institution):</label>
+                        <input type="text" name="institution[]" placeholder="Institution Name" required>
+
+                        <label for="educationFrom">From (Year):</label>
+                        <input type="date" name="educationFrom[]" placeholder="Start Year" required>
+
+                        <label for="educationTo">To (Year):</label>
+                        <input type="date" name="educationTo[]" placeholder="End Year" required>
+                    </div>
+                </div>
+                <button type="button" onclick="addEducationField()">Add Education</button>
+            </fieldset>
+
+            <!-- Higher Education Section -->
+            <fieldset id="higherEducationFieldset">
+                <legend>Higher Education</legend>
+                <div id="higherEducationList">
+                    <div>
+                        <label for="higherEducationLevel">Degree:</label>
+                        <input type="text" name="higherEducationLevel[]" placeholder="e.g., Master's Degree" required>
+
+                        <label for="higherInstitution">Where (Institution):</label>
+                        <input type="text" name="higherInstitution[]" placeholder="Institution Name" required>
+
+                        <label for="higherEducationFrom">From (Year):</label>
+                        <input type="date" name="higherEducationFrom[]" placeholder="Start Year" required>
+
+                        <label for="higherEducationTo">To (Year):</label>
+                        <input type="date" name="higherEducationTo[]" placeholder="End Year" required>
+                    </div>
+                </div>
+                <button type="button" onclick="addHigherEducationField()">Add Higher Education</button>
+            </fieldset>
+
+            <!-- Work Experience Section -->
+            <fieldset id="workFieldset">
+                <legend>Work Experience</legend>
+                <div id="workList"></div>
+                <label for="workList">Where (Company):</label>
+                        <input type="text" name="higherInstitution[]" placeholder="Institution Name" required>
+
+                        <label for="workfrom">From (Year):</label>
+                        <input type="date" name="workFrom[]" placeholder="Start Year" required>
+
+                        <label for="workTo">To (Year):</label>
+                        <input type="date" name="work[]" placeholder="End Year" required>
+                <button type="button" onclick="addWorkField()">Add Work Experience</button>
+            </fieldset>
+
+            <!-- Skills Section -->
+            <fieldset>
+                <legend>Skills</legend>
+                <div id="skillsList"></div>
+                <button type="button" onclick="addSkillField()">Add Skill</button>
+            </fieldset>
+
+            <!-- Action Buttons -->
+            <button type="button" onclick="generateResume()">Generate Resume</button>
+        </form>
+
+        <!-- Generated Resume Output -->
+        <div id="resumeOutput" class="resume-output"></div>
+    </div>
+    <script src="app.js"></script>
+
+</body>
+</html>
+ 
